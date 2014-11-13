@@ -1,3 +1,4 @@
 class Employee < ActiveRecord::Base
-  has_many :timeentries
+  has_many :time_entries
+  has_many :projects
 end
