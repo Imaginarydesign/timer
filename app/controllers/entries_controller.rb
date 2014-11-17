@@ -19,12 +19,12 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
-    @employee = Employee.all
+    # @employee = Employee.all
   end
 
   # GET /entries/1/edit
   def edit
-    @employee = Employee.all
+    # @employee = Employee.all
   end
 
   # POST /entries
