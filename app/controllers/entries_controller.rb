@@ -30,9 +30,11 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
+
     @entry = Entry.new(entry_params)
 
     respond_to do |format|
+
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }

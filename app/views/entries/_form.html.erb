@@ -26,15 +26,9 @@
   </div>
   -->
   <div class="field">
-    <select name="" id="">
-      
-      <% @employee.each do |employee| %>
-        <option value="<%= employee.id %>"><%= employee.name %></option>
-      <% end %>
-
-    </select>
+    <%= f.label :employee %><br>
+    <%= collection_select(:entry, :employee_id, Employee.all, :id, :name) %>
   </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
