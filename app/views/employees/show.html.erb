@@ -10,5 +10,12 @@
   <%= @employee.email %>
 </p>
 
+<p>Entries</p>
+<ul>
+  <% @employee.entries.each do |entry| %>
+  <li><%= entry.name %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>

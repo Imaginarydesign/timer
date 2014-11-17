@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :entries
   resources :projects
-
   resources :employees
 
   # The priority is based upon order of creation: first created -> highest priority.
