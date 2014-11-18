@@ -14,6 +14,7 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @employee = Employee.find(@entry.employee_id)
+    @project = Project.find(@entry.project_id)
   end
 
   # GET /entries/new

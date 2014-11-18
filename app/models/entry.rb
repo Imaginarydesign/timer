@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
   belongs_to :employee
+  belongs_to :project
 
   # Validation
   validates :employee_id, presence: true
