@@ -8,7 +8,26 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+  
+  <!-- Header -->
+  <div class="header">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="active"><a href="/entries">Entries</a></li>
+        <li role="presentation"><a href="/employees">Employees</a></li>
+        <li role="presentation"><a href="/projects">Projects</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">Timer App</h3>
+  </div>
+  
+  <!-- Content -->
+  <%= yield %>
+
+  </div><!-- /.container -->
+
+
 
 </body>
 </html>

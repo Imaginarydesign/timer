@@ -1,11 +1,14 @@
 <h1>Listing entries</h1>
 
-<table>
+<hr>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Id</th>
-      <th>Name</th>
-      <th>Time</th>
+      <th>Task name</th>
+      <th>Time spent</th>
+      <th>Project</th>
       <th>Employee</th>
       <th colspan="3"></th>
     </tr>
@@ -17,6 +20,7 @@
         <td><%= entry.id %></td>
         <td><%= entry.name %></td>
         <td><%= entry.time %></td>
+        <td><%= entry.project.name %></td>
         <td><%= entry.employee.name %></td>
         <td><%= link_to 'Show', entry %></td>
         <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
@@ -28,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Entry', new_entry_path %>
+<%= link_to 'New Entry', new_entry_path, class: "btn btn-default" %>
