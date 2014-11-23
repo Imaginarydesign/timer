@@ -1,11 +1,11 @@
-<h1>Listing entries</h1>
+<h1>Entries</h1>
 
 <hr>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Id</th>
+      <th>Date</th>
       <th>Task name</th>
       <th>Time spent</th>
       <th>Project</th>
@@ -17,7 +17,7 @@
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
-        <td><%= entry.id %></td>
+        <td><%= entry.created_at.strftime('%d/%m/%Y') %></td>
         <td><%= entry.name %></td>
         <td><%= entry.time %></td>
         <td><%= entry.project.name %></td>
