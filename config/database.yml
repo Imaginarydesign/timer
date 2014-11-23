@@ -9,7 +9,15 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
-default: &default
+default: 
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  database: timer
   adapter: mysql2
   encoding: utf8
   pool: 5
@@ -18,15 +26,10 @@ default: &default
   host: localhost
   socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
-development:
-  <<: *default
-  database: timer
-
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
   database: timer_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -49,7 +52,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
   database: timer_production
   username: timer
   password: <%= ENV['TIMER_DATABASE_PASSWORD'] %>
