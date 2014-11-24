@@ -1,0 +1,13 @@
+//= require ./affix.js
+//= require ./bootstrap.js
+//= require ./carousel.js
+//= require ./dropdown.js
+//= require ./tooltip.js
+//= require ./popover.js
+//= require ./tab.js
+//= require ./transition.js
+//= require ./alert.js
+//= require ./button.js
+//= require ./collapse.js
+//= require ./modal.js
+//= require ./scrollspy.js
