@@ -16,15 +16,23 @@ default:
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
+# development:
+#   database: timer
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: 5
+#   username: root
+#   password: root
+#   host: localhost
+#   socket: /Applications/MAMP/tmp/mysql/mysql.sock
+
 development:
-  database: timer
-  adapter: mysql2
-  encoding: utf8
+  database: timer_development
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  username: root
-  password: root
-  host: localhost
-  socket: /Applications/MAMP/tmp/mysql/mysql.sock
+  username: adamkoniuszewski
+  password: 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
