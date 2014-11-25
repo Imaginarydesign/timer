@@ -1,5 +1,8 @@
-<h1>Entries <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></h1>
-<%= link_to 'New Entry', new_entry_path %>
+<h1>Entries <%= link_to 'Add New', new_entry_path, class: "pull-right btn btn-default"  %></h1>
+
+<% if notice %>
+<div id="notice" class="alert alert-success" role="alert"><%= notice %></div>
+<% end %>
 
 <hr>
 
@@ -32,7 +35,5 @@
     <% end %>
   </tbody>
 </table>
-
-<hr>
 
 

@@ -20,12 +20,10 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
-    # @employee = Employee.all
   end
 
   # GET /entries/1/edit
   def edit
-    # @employee = Employee.all
   end
 
   # POST /entries
@@ -37,7 +35,7 @@ class EntriesController < ApplicationController
     respond_to do |format|
 
       if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
+        format.html { redirect_to entries_path, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new }
@@ -51,7 +49,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
+        format.html { redirect_to entries_path, notice: 'Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @entry }
       else
         format.html { render :edit }
@@ -80,4 +78,5 @@ class EntriesController < ApplicationController
     def entry_params
       params.require(:entry).permit(:name, :time, :employee_id, :project_id)
     end
+
 end

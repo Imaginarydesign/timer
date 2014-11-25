@@ -13,21 +13,9 @@
 
   <!-- MAIN CONTENT  -->
   <div class="container">
-  
-  <!-- Header -->
-  <div class="header">
-    <nav>
-      <ul class="nav nav-pills pull-right">
-        <li role="presentation" class="<%= 'active' if current_page?(entries_path) %>"><a href="/entries">Entries</a></li>
-        <li role="presentation" class="<%= 'active' if current_page?(employees_path) %>"><a href="/employees">Employees</a></li>
-        <li role="presentation" class="<%= 'active' if current_page?(projects_path) %>"><a href="/projects">Projects</a></li>
-      </ul>
-    </nav>
-    <h3 class="text-muted">Timer App</h3>
-  </div>
 
-  <!-- Content -->
-  <%= yield %>
+    <!-- Content -->
+    <%= yield %>
 
   <!-- Footer -->
   <%= render "partials/footer" %>
