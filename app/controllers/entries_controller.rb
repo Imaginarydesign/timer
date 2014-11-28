@@ -29,10 +29,6 @@ class EntriesController < ApplicationController
   def edit
   end
 
-  def createemployee
-
-  end
-
   # POST /entries
   # POST /entries.json
   def create
@@ -49,7 +45,7 @@ class EntriesController < ApplicationController
         format.html { redirect_to entries_path, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else
-        format.html { render :new }
+        format.html { redirect_to entries_path, notice: 'there was a problem.' }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
     end

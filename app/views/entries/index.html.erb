@@ -8,7 +8,6 @@
 
 <div class="well">
 <%= form_for(@entry, :html => {:class => "form-inline"}) do |f| %>
-  
 
   <div class="form-group">
     <%= f.text_field :name, :class => 'form-control', :placeholder => "Name" %>
@@ -17,10 +16,10 @@
     <%= f.text_field :time, :class => 'form-control', :placeholder => "Time" %>
   </div>
   <div class="form-group">
-    <%= collection_select(:entry, :employee_id, Employee.all, :id, :name, {:prompt => 'Employee'},  {:class=>'form-control'}) %>
+    <%= collection_select(:entry, :employee_id, Employee.all, :id, :name, {:prompt => 'Select Employee'},  {:class=>'form-control'}) %>
   </div>
   <div class="form-group">
-    <%= collection_select(:entry, :project_id, Project.all, :id, :name, {:prompt => 'Project'}, {:class=>'form-control'}) %>
+    <%= collection_select(:entry, :project_id, Project.all, :id, :name, {:prompt => 'Select Project'}, {:class=>'form-control'}) %>
   </div>
   <%= f.submit class: 'btn btn-primary' %>
 <%end %>
