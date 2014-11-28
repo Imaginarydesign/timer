@@ -20,15 +20,25 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
+    @employee = Employee.new
+    @project = Project.new
   end
 
   # GET /entries/1/edit
   def edit
   end
 
+  def createemployee
+
+  end
+
   # POST /entries
   # POST /entries.json
   def create
+
+    # puts entry_params.inspect
+    # puts YAML::dump(params)
+    # abort
 
     @entry = Entry.new(entry_params)
 
