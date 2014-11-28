@@ -7,6 +7,7 @@ class EntriesController < ApplicationController
   # GET /entries.json
   def index
     @entries = Entry.all.reverse
+    @entry = Entry.new
   end
 
   # GET /entries/1
