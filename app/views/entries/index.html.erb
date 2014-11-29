@@ -47,7 +47,7 @@
       <tr>
         <td><%= entry.created_at.strftime('%d/%m/%Y') %></td>
         <td><%= entry.name %></td>
-        <td><%= distance_of_time_in_words(entry.time.to_i) %></td>
+        <td><%= distance_of_time_in_words(entry.time) %></td>
         <td><%= entry.project.name %></td>
         <td><%= entry.employee.name %></td>
         <td class="text-right">
