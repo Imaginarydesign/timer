@@ -5,21 +5,6 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-
-    # @total = project.entries.sum(:time)
-
-    # @projects.each do |project|
-    #   project.entries.each do |time|
-    #     @total = time.time.to_i
-    #   end
-    # end
-
-    # @total_time = @projects.entries.sum(&:time)
-
-    # @projects.each do |project|
-    #   @total = @project.entries.sum(:time)
-    # end
-
   end
 
   # GET /projects/1
