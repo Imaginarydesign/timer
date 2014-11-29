@@ -1,6 +1,19 @@
+# require 'chronic_duration'
+
 class Entry < ActiveRecord::Base
+
   belongs_to :employee
   belongs_to :project
+
+  attr_accessor :hours, :minutes
+
+  # Run function before validation
+  before_validation :update_time
+
+  # Update time to be the sum of hours and minutes
+  def update_time
+    self.time = self.hours.to_i + self.minutes.to_i
+  end
 
   # Validation
   validates :employee_id, presence: true

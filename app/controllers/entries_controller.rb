@@ -45,7 +45,7 @@ class EntriesController < ApplicationController
         format.html { redirect_to entries_path, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else
-        format.html { redirect_to entries_path, notice: 'there was a problem.' }
+        format.html { render :new }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
     end
@@ -83,7 +83,7 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:name, :time, :hours, :minutes, :employee_id, :project_id)
+      params.require(:entry).permit(:name, :hours, :minutes, :employee_id, :project_id)
     end
 
 end
