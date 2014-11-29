@@ -12,7 +12,7 @@ class Entry < ActiveRecord::Base
 
   # Update time to be the sum of hours and minutes
   def update_time
-    self.time = self.hours.to_i + self.minutes.to_i
+    self.time = self.hours.to_i*3600 + self.minutes.to_i*60
   end
 
   # Validation
