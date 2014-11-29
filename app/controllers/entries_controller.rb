@@ -33,10 +33,6 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
 
-    # puts entry_params.inspect
-    # puts YAML::dump(params)
-    # abort
-
     @entry = Entry.new(entry_params)
 
     respond_to do |format|
