@@ -19,6 +19,9 @@
   <div class="form-group">
     <%= collection_select(:entry, :project_id, Project.all, :id, :name, {:prompt => 'Select Project'}, {:class=>'form-control'}) %>
   </div>
+  <div class="form-group">
+    <%= f.select :billable, options_for_select([['Billable', 1], ['Non-Billable', 0]], 1), {}, {:class=>'form-control'} %>
+  </div>
   <%= f.submit class: 'btn btn-primary' %>
 <%end %>
 </div>
@@ -40,6 +43,7 @@
       <th>Project</th>
       <th>Employee</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -51,6 +55,13 @@
         <td><%= distance_of_time_in_words(entry.time) %></td>
         <td><%= entry.project.name %></td>
         <td><%= entry.employee.name %></td>
+        <td>
+          <% if entry.billable == 0 %>
+            <span class="label label-success">Billable</span>
+          <% else %>
+            <span class="label label-default">Non-Billable</span>
+          <% end %>
+        </td>
         <td class="text-right">
           <%= link_to 'Show', entry, class: "btn btn-sm btn-default" %>
           <%= link_to 'Edit', edit_entry_path(entry), class: "btn btn-sm btn-default" %>
