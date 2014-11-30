@@ -52,7 +52,6 @@ class EntriesController < ApplicationController
       else
         @today_entries = Entry.where("date = ?", Date.today)
         @yesterday_entries = Entry.where("date = ?", Date.yesterday)
-        @entry = Entry.new
         format.html { render :action => :index }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
