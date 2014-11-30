@@ -16,13 +16,17 @@ class Entry < ActiveRecord::Base
   end
 
   # Validation
+  validates :date, presence: true
   validates :employee_id, presence: true
   validates :project_id, presence: true
   validates :name,
-                  length: { minimum: 4 },
+                  length: { minimum: 4 }
+  validates :hours,
                   presence: true
-  validates :time,
-                  numericality: { greater_than: 0 },
-                  presence: true
+  validates :minutes,
+                  numericality: { greater_than: 0, message: "must be a number (greater than 0)" }
+  # validates :time,
+  #                 numericality: { greater_than: 0 },
+  #                 presence: true
 
 end
