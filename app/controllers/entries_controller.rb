@@ -81,7 +81,7 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:name, :hours, :minutes, :employee_id, :project_id, :billable)
+      params.require(:entry).permit(:name, :date, :hours, :minutes, :employee_id, :project_id, :billable)
     end
 
 end
