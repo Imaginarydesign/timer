@@ -21,6 +21,8 @@ console.log('Hello from console');
 
 // Datepicker
 $(document).ready(function(){
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd'
+  });
 });
 

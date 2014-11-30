@@ -8,7 +8,14 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.take(5).reverse
+    # date = Date.today
+    # @entries = Entry.take(5).reverse
+    @today_entries = Entry.where("date = ?", Date.today)
+    @yesterday_entries = Entry.where("date = ?", Date.yesterday)
+    # @entires = Entry.where(:date => date).take(5).reverse
+    # @entires = Entry.where("date = ?", date).take(5).reverse
+    # @entires = Entry.where("date" => date).take(5).reverse
+    # @entires = Entry.find(:conditions => {:date => date})
     @entry = Entry.new
   end
 

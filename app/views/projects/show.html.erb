@@ -32,7 +32,7 @@
         <td><%= entry.name %></td>
         <td><%= distance_of_time_in_words(entry.time.to_i) %></td>
         <td>
-          <% if entry.billable == 0 %>
+          <% if entry.billable == 1 %>
             <span class="label label-success">Billable</span>
           <% else %>
             <span class="label label-default">Non-Billable</span>
