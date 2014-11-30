@@ -17,7 +17,7 @@
   <tfoot>
     <tr>
       <th>Total time spent</th>
-      <th><%#= @project.entries.sum(:time) %></th>
+      <th><%= distance_of_time_in_words(@project.entries.sum(:time)) %></th>
       <td></td>
       <td></td>
       <td></td>

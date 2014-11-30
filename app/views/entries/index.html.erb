@@ -1,6 +1,5 @@
-<h1>Entries <%= link_to 'Add New', new_entry_path, class: "pull-right btn btn-default"  %></h1>
+<h1>Add Time Entry</h1>
 
-<hr>
 
 <div class="well">
 <%= form_for(@entry, :html => {:class => "form-inline"}) do |f| %>
@@ -28,6 +27,8 @@
 <div id="notice" class="alert alert-success" role="alert"><%= notice %></div>
 <% end %>
 
+
+<h3>Recent entries</h3>
 <hr>
 
 <table class="table table-striped">
