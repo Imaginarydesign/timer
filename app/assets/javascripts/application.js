@@ -14,6 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap/bootstrap
+//= require bootstrap-datepicker/core
 //= require_tree .
 
 console.log('Hello from console');
+
+// Datepicker
+$(document).ready(function(){
+  $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd'
+  });
+});
+
