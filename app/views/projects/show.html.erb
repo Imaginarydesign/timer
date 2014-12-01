@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @project.name %></h2>
-
-<h3>Entries</h3>
+<h2><%= @project.name %> </h2>
+<div class="alert alert-success"><%= distance_of_time_in_words(@project.entries.sum(:time)) %> spent on the project so far.</div>
 <hr>
+<h3>All Entries</h3>
 
 <table class="table table-striped">
   <thead>

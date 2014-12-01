@@ -1,20 +1,19 @@
-<% content_for :add_new do %>
+<%# content_for :add_new do %>
 <!-- <h3>Add new</h3> -->
 
+<% if @entry.errors.any? %>
+  <div class="alert alert-warning">
+    <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
 
-  <% if @entry.errors.any? %>
-    <div class="alert alert-warning">
-      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
-
-      <ul>
-      <% @entry.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-
+    <ul>
+    <% @entry.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
 
+<div class="well well-lg">
 <%= form_for(@entry, :html => {:class => "form-inline"}) do |f| %>
   <div class="form-group">
     <%= f.text_field :date, :class => 'form-control datepicker', :placeholder => "Date", :style => "max-width: 100px;" %>
@@ -37,10 +36,12 @@
   <div class="form-group">
     <%= f.select :billable, options_for_select([['Billable', 1], ['Non-Billable', 0]], 1), {}, {:class=>'form-control'} %>
   </div>
-  <%= f.submit "Add New", class: 'btn btn-primary' %>
+  <%= f.submit "Add New", class: 'btn btn-success' %>
 <%end %>
+</div>
+<hr>
 
-<% end %>
+<%# end %>
 
 <% if notice %>
 <div id="notice" class="alert alert-success" role="alert"><%= notice %></div>
@@ -76,7 +77,7 @@
           <% end %>
         </td>
         <td class="text-right">
-          <%= link_to 'Show', entry, class: "btn btn-sm btn-default" %>
+          <%#= link_to 'Show', entry, class: "btn btn-sm btn-default" %>
           <%= link_to 'Edit', edit_entry_path(entry), class: "btn btn-sm btn-default" %>
           <%= link_to entry, class: "btn btn-sm btn-default", method: :delete, data: { confirm: 'Are you sure?' } do %>
           Delete
@@ -87,6 +88,7 @@
   </tbody>
 </table>
 
+<% if @yesterday_entries.size > 1 %>
 <hr>
 
 <h3 class="text-muted">Yesterday <small><%= distance_of_time_in_words(@yesterday_entries.sum(:time)) %></small></h3>
@@ -118,13 +120,16 @@
           <% end %>
         </td>
         <td class="text-right">
-          <%= link_to 'Show', entry, class: "btn btn-sm btn-default" %>
+          <%#= link_to 'Show', entry, class: "btn btn-sm btn-default" %>
           <%= link_to 'Edit', edit_entry_path(entry), class: "btn btn-sm btn-default" %>
-          <%= link_to 'Destroy', entry, class: "btn btn-sm btn-default", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to entry, class: "btn btn-sm btn-default", method: :delete, data: { confirm: 'Are you sure?' } do %>
+          Delete
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 
