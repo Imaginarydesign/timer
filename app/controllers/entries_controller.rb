@@ -36,6 +36,8 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
+    @hours = Entry.find(params[:id]).time / (60 * 60)
+    @minutes = (Entry.find(params[:id]).time / 60) % 60
   end
 
   # POST /entries
