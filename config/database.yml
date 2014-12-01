@@ -62,4 +62,5 @@ test:
 production:
   database: timer_production
   username: timer
+  adapter: postgresql
   password: <%= ENV['TIMER_DATABASE_PASSWORD'] %>
