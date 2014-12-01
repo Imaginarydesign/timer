@@ -19,10 +19,3 @@
 
 console.log('Hello from console');
 
-// Datepicker
-$(document).ready(function(){
-  $('.datepicker').datepicker({
-    format: 'yyyy-mm-dd'
-  });
-});
-
