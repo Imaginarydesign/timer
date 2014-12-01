@@ -1,3 +1,5 @@
+require 'chronic_duration'
+
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
@@ -6,7 +8,14 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all.reverse
+    # date = Date.today
+    # @entries = Entry.take(5).reverse
+    @today_entries = Entry.where("date = ?", Date.today)
+    @yesterday_entries = Entry.where("date = ?", Date.yesterday)
+    # @entires = Entry.where(:date => date).take(5).reverse
+    # @entires = Entry.where("date = ?", date).take(5).reverse
+    # @entires = Entry.where("date" => date).take(5).reverse
+    # @entires = Entry.find(:conditions => {:date => date})
     @entry = Entry.new
   end
 
@@ -33,10 +42,6 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
 
-    # puts entry_params.inspect
-    # puts YAML::dump(params)
-    # abort
-
     @entry = Entry.new(entry_params)
 
     respond_to do |format|
@@ -45,7 +50,9 @@ class EntriesController < ApplicationController
         format.html { redirect_to entries_path, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else
-        format.html { redirect_to entries_path, notice: 'there was a problem.' }
+        @today_entries = Entry.where("date = ?", Date.today)
+        @yesterday_entries = Entry.where("date = ?", Date.yesterday)
+        format.html { render :action => :index }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
     end
@@ -83,7 +90,7 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:name, :time, :employee_id, :project_id)
+      params.require(:entry).permit(:name, :date, :hours, :minutes, :employee_id, :project_id, :billable)
     end
 
 end

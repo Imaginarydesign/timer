@@ -9,5 +9,6 @@
 Employee.create(name: 'Adam', email: 'adam@brightredmedia.com')
 Employee.create(name: 'Jonathan', email: 'jonathan@brightredmedia.com')
 
-Project.create(name: 'Test project 1')
-Project.create(name: 'Test project 2')
+Project.create(name: 'Misc')
+
+Entry.create(name: 'Done something special', date: '2014-11-30', hours: '1', minutes: '30', employee_id: '1', project_id: '1', billable: '1')
