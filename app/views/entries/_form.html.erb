@@ -1,7 +1,7 @@
 <%= form_for(@entry, :html => {:class => "form-horizontal"}) do |f| %>
 
   <% if @entry.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-warning">
       <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
 
       <ul>
@@ -23,9 +23,15 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :time, :class => "col-sm-2 control-label" %>
-    <div class="col-sm-4">
-      <%= f.text_field :time, :class => 'form-control' %>
+    <%= f.label :hours, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.text_field :hours, :class => 'form-control', :value => @hours %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :minutes, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.text_field :minutes, :class => 'form-control', :value => @minutes %>
     </div>
   </div>
   <div class="form-group">

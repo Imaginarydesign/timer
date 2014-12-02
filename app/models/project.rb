@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
 
   # Validation
   validates :name,
-                  length: { minimum: 4 },
-                  presence: true
+                  length: { minimum: 4 }
+  validates :allowed,
+                  presence: true, numericality: { greater_than: 0 }
 end
