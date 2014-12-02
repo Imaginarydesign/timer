@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @project.name %> </h2>
-<div class="alert alert-success"><%= distance_of_time_in_words(@project.entries.sum(:time)) %> spent on the project so far.</div>
+<div class="alert alert-success"><%= Time.at(@project.entries.sum(:time)).utc.strftime("%H h %M min") %> spent on the project so far.</div>
 <hr>
 <h3>All Entries</h3>
 
@@ -22,7 +22,7 @@
       <tr>
         <td><%= entry.date %></td>
         <td><%= entry.name %></td>
-        <td><%= distance_of_time_in_words(entry.time.to_i) %></td>
+        <td><%= Time.at(entry.time.to_i).utc.strftime("%H:%M:%S") %></td>
         <td>
           <% if entry.billable == 1 %>
             <span class="label label-success">Billable</span>

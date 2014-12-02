@@ -20,7 +20,7 @@
     <% @projects.each do |project| %>
       <tr <% if project.entries.sum(:time) / (60 * 60) >  project.allowed %> class="warning" <% end %>>
         <td><%= project.name %></td>
-        <td><%= distance_of_time_in_words(project.entries.sum(:time)) %> (in <%= project.entries.count %> tasks)</td>
+        <td><%= Time.at(project.entries.sum(:time)).utc.strftime("%H h %M min") %> (in <%= project.entries.count %> tasks)</td>
         <td><%= project.allowed %> hours</td>
         <td class="text-right">
           <%= link_to 'Show', project, class: "btn btn-sm btn-default" %>
