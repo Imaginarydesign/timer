@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   has_many :employees
-  has_many :entries
+  has_many :entries, :dependent => :destroy
 
   # Validation
   validates :name,
