@@ -47,7 +47,7 @@
 <div id="notice" class="alert alert-success" role="alert"><%= notice %></div>
 <% end %>
 
-<h3 class="text-muted">Today <small><%= distance_of_time_in_words(@today_entries.sum(:time)) %></small></h3>
+<h3 class="text-muted">Today <small><%= Time.at(@today_entries.sum(:time)).utc.strftime("%H h %M min") %></small></h3>
 
 <table class="table">
   <thead>
@@ -66,7 +66,7 @@
     <% @today_entries.each do |entry| %>
       <tr>
         <td><%= entry.name %></td>
-        <td><%= distance_of_time_in_words(entry.time) %></td>
+        <td><%= Time.at(entry.time).utc.strftime("%H h %M min") %></td>
         <td><%= entry.project.name %></td>
         <td><%= entry.employee.name %></td>
         <td>
@@ -91,7 +91,7 @@
 <% if @yesterday_entries.size > 1 %>
 <hr>
 
-<h3 class="text-muted">Yesterday <small><%= distance_of_time_in_words(@yesterday_entries.sum(:time)) %></small></h3>
+<h3 class="text-muted">Yesterday <small><%= Time.at(@yesterday_entries.sum(:time)).utc.strftime("%H h %M min") %></small></h3>
 
 <table class="table table-striped">
   <thead>
@@ -109,7 +109,7 @@
     <% @yesterday_entries.each do |entry| %>
       <tr>
         <td><%= entry.name %></td>
-        <td><%= distance_of_time_in_words(entry.time) %></td>
+        <td><%=  Time.at(entry.time).utc.strftime("%H h %M min") %></td>
         <td><%= entry.project.name %></td>
         <td><%= entry.employee.name %></td>
         <td>
