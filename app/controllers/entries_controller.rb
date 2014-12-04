@@ -1,5 +1,3 @@
-require 'chronic_duration'
-
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
@@ -8,14 +6,9 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    # date = Date.today
-    # @entries = Entry.take(5).reverse
     @today_entries = Entry.where("date = ?", Date.today)
     @yesterday_entries = Entry.where("date = ?", Date.yesterday)
-    # @entires = Entry.where(:date => date).take(5).reverse
-    # @entires = Entry.where("date = ?", date).take(5).reverse
-    # @entires = Entry.where("date" => date).take(5).reverse
-    # @entires = Entry.find(:conditions => {:date => date})
+
     @entry = Entry.new
   end
 

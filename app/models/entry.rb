@@ -23,10 +23,5 @@ class Entry < ActiveRecord::Base
                   length: { minimum: 4 }
   validates :hours,
                   presence: true
-  # validates :minutes,
-  #                 numericality: { message: "must be a number" }
-  # validates :time,
-  #                 numericality: { greater_than: 0 },
-  #                 presence: true
 
 end
