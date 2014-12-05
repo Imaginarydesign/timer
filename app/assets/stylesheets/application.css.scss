@@ -1,7 +1,10 @@
-// @import "../../../vendor/assets/stylesheets/bootstrap/bootstrap.scss";
-// @import "../../../vendor/assets/stylesheets/bootstrap-datepicker/bootstrap-datepicker3.scss";
-
+// Import Bootstrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Import Bootstrap datepicker
 @import "../../../vendor/assets/stylesheets/bootstrap-datepicker/bootstrap-datepicker3.scss";
+
+// Import partials
+@import "partials/config";
+@import "partials/scaffold";
