@@ -23,8 +23,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 # Bootstrap
-# gem 'bootstrap-sass', '~> 3.3.1'
-# gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
 # gem 'chronic_duration'
 gem 'bootstrap-datepicker-rails'
 
